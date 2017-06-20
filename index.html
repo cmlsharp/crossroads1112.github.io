@@ -1297,40 +1297,18 @@
     </script>
     <script>
 
-    var script = document.createElement('script');
-    script.src = "breakout_em.asm.js";
-    script.onload = function() {
-      setTimeout(function() {
-        
-          (function() {
-            var memoryInitializer = 'breakout_em.html.mem';
-            if (typeof Module['locateFile'] === 'function') {
-              memoryInitializer = Module['locateFile'](memoryInitializer);
-            } else if (Module['memoryInitializerPrefixURL']) {
-              memoryInitializer = Module['memoryInitializerPrefixURL'] + memoryInitializer;
-            }
-            var xhr = Module['memoryInitializerRequest'] = new XMLHttpRequest();
-            xhr.open('GET', memoryInitializer, true);
-            xhr.responseType = 'arraybuffer';
-            xhr.send(null);
-          })();
-
-          var xhr = new XMLHttpRequest();
-          xhr.open('GET', 'breakout_em.bin', true);
-          xhr.responseType = 'arraybuffer';
-          xhr.onload = function() {
-            Module.emterpreterFile = xhr.response;
+          var emterpretXHR = new XMLHttpRequest();
+          emterpretXHR.open('GET', 'breakout_em.bin', true);
+          emterpretXHR.responseType = 'arraybuffer';
+          emterpretXHR.onload = function() {
+            Module.emterpreterFile = emterpretXHR.response;
 
           var script = document.createElement('script');
           script.src = "breakout_em.js";
           document.body.appendChild(script);
 
           };
-          xhr.send(null);
-
-      }, 1); // delaying even 1ms is enough to allow compilation memory to be reclaimed
-    };
-    document.body.appendChild(script);
+          emterpretXHR.send(null);
 
 </script>
   </body>
