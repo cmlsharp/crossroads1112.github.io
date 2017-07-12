@@ -85,13 +85,13 @@ window.onerror = function(event) {
 
 
 var emterpretXHR = new XMLHttpRequest();
-emterpretXHR.open('GET', 'resources/breakout.bin', true);
+emterpretXHR.open('GET', 'breakout.bin', true);
 emterpretXHR.responseType = 'arraybuffer';
 emterpretXHR.onload = function() {
     Module.emterpreterFile = emterpretXHR.response;
 
     var script = document.createElement('script');
-    script.src = "resources/breakout.js";
+    script.src = "breakout.js";
     document.body.appendChild(script);
 };
 
