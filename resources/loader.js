@@ -20,14 +20,16 @@ var Module = {
     print: (function() {
         var element = document.getElementById('output');
         if (element) {
-            element.value = ''; // clear browser cache
+            // clear browser cache
+            element.value = '';
         }
         return function(text) {
             if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
             console.log(text);
             if (element) {
                 element.value += text + "\n";
-                element.scrollTop = element.scrollHeight; // focus on bottom
+                // focus on bottom
+                element.scrollTop = element.scrollHeight;
             }
         };
     })(),
@@ -82,7 +84,6 @@ window.onerror = function(event) {
         if (text) Module.printErr('[post-exception status] ' + text);
     };
 };
-
 
 var emterpretXHR = new XMLHttpRequest();
 emterpretXHR.open('GET', 'breakout.bin', true);
