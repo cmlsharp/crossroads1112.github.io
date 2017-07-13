@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!DOCTYPE HTML>
+<html lang="en">
     <head>
-
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Breakout</title>
-        <link rel="stylesheet" type="text/css" href="resources/breakout.css"/>
-
+        <link rel="stylesheet" href="resources/breakout.css"/>
     </head>
 
-    <body bgcolor="#4D4D4D">
+    <body>
         <div class="spinner" id='spinner'></div>
         <p class="emscripten" id="status">Downloading...</p>
 
@@ -22,10 +20,9 @@
             <progress value="0" max="100" id="progress" hidden=1></progress>
         </div>
 
-
         <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
 
         <textarea id="output" rows="8"></textarea>
-        <script type='text/javascript' src="resources/loader.js"></script>
+        <script type="text/javascript" src="resources/loader.js"></script>
     </body>
 </html>
